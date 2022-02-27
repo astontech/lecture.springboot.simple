@@ -34,6 +34,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
         
       - name: Copy files to S3
-        run: aws s3 cp artifacts s3://${{ secrets.AWS_S3_BUCKET }}/${GITHUB_SHA::6}/ --recursive
+        run: aws s3 cp artifacts s3://${{ secrets.AWS_S3_BUCKET }}/${GITHUB_SHA::6}/ --recursive --region us-east-2
 
 
