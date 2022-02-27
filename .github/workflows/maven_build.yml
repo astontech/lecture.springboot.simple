@@ -20,7 +20,7 @@ jobs:
         run: mkdir artifacts && cp target/*.jar artifacts/
 
       - name: install aws cli
-        run: sudo apt-get update && sudo apt-get install -y aws-cli
+        run: sudo apt-get update && sudo apt-get install -y awscli
       
       - name: Set up AWS credentials
         run: |
