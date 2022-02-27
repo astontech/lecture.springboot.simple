@@ -1,9 +1,7 @@
 
 name: Deploy application with Terraform
 
-env: 
-  AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_AWS_ACCESS_KEY }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
+
 
 on:
   release:
@@ -11,7 +9,7 @@ on:
 
 jobs:
   deploy_terraform:
-    name: Push Docker image to Docker Hub
+    name: Deploy with terraform
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +17,9 @@ jobs:
 
       - name: "intialize terraform"
         run: terraform init
+        env: 
+          AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_AWS_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
 
       - name: "validate terraform"
         run: terraform validate -no-color
