@@ -1,0 +1,27 @@
+
+name: Deploy application with Terraform
+
+env: 
+  AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_AWS_SECRET_ACCESS_KEY }}
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy_terraform:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
+
+      - name: "intialize terraform"
+        run: terraform init
+
+      - name: "validate terraform"
+        run: terraform validate -no-color
+
+      - name: "DEMO run plan"
+        run: terraform plan -no-color
