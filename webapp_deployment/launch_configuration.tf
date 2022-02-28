@@ -1,7 +1,6 @@
 resource "aws_launch_configuration" "as_conf" {
   name_prefix   = "${var.application_name}-node-"
-  //TODO - update image ID with java environment AMI
-  image_id      = "ami-0fb653ca2d3203ac1"
+  image_id      = var.worker_ami
   instance_type = "t2.micro"
 
   // TODO - update userdata script for running spring application, add command to get S3 command where bucket folder = application_version

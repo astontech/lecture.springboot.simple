@@ -4,6 +4,9 @@ variable "vpc_cidr" {
   default = "10.1.0.0/16"
 }
 
+variable "worker_ami" {
+  type = string
+}
 
 variable "subnets" {
     default = [
