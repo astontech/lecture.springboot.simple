@@ -3,7 +3,7 @@ name: Java CI
 on:
   push:
     paths:
-     - src
+     - 'src/**'
 
 jobs:
   build:
