@@ -5,7 +5,7 @@ resource "aws_launch_configuration" "as_conf" {
   iam_instance_profile = var.instance_profile
   user_data = <<EOF
 #! /bin/bash
-aws s3 cp s3://${var.artifact_demo}/${var.application_version} ./ --recursive
+aws s3 cp s3://${var.artifact_bucket}/${var.application_version} ./ --recursive
 java -jar *.jar
 EOF
 
