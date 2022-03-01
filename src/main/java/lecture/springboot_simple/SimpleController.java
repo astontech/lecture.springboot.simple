@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
+// added comment to test ci
+
 @RestController
 public class SimpleController {
 
