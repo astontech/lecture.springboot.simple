@@ -52,3 +52,7 @@ variable "autoscaling" {
     desired = 2
   }
 }
+
+variable "instance_profile" {
+  type = string
+}
