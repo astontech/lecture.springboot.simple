@@ -13,10 +13,10 @@ resource "aws_lb" "webapp_alb" {
 }
 
 resource "aws_lb_target_group" "webapp_tg" {
-  name_prefix     = "${var.application_name}-lb-tg"
-  port            = var.backend_port
-  protocol        = "HTTP"
-  vpc_id          = module.network.vpc_id
+  name     = "${var.application_name}-lb-tg"
+  port     = var.backend_port
+  protocol = "HTTP"
+  vpc_id   = module.network.vpc_id
 
   lifecycle {
     create_before_destroy = true
