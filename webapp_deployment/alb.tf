@@ -16,10 +16,18 @@ resource "aws_lb_target_group" "webapp_tg" {
   name_pref     = "${var.application_name}-lb-tg"
   port     = var.backend_port
   protocol = "HTTP"
-  health_check {
+
+  vpc_id   = module.network.vpc_id
+  name_prefix     = "${var.application_name}-lb-tg"
+
+    health_check {
     path = "/datetime"
   }
-  vpc_id   = module.network.vpc_id
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
 }
 
 resource "aws_lb_listener" "front_end" {
