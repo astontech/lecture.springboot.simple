@@ -5,6 +5,7 @@ module "app" {
     artifact_bucket = "aston-lecture.springboot.simple-artifacts"
     worker_ami = "ami-0abfe55c2cc86d5ad"
     instance_profile = "allow_s3_ec2_github_demo"
+    backend_port = 8080
     subnets = [
     {
       az     = "us-west-2a",
