@@ -13,9 +13,12 @@ resource "aws_lb" "webapp_alb" {
 }
 
 resource "aws_lb_target_group" "webapp_tg" {
-  name     = "${var.application_name}-lb-tg"
+  name_pref     = "${var.application_name}-lb-tg"
   port     = var.backend_port
   protocol = "HTTP"
+  health_check {
+    path = "/datetime"
+  }
   vpc_id   = module.network.vpc_id
 }
 
