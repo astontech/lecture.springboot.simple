@@ -31,5 +31,5 @@ jobs:
       - name: "validate terraform"
         run: terraform validate -no-color
 
-      - name: "DEMO run plan"
-        run: terraform plan -no-color
+      - name: "Run terraform apply"
+        run: terraform apply -auto-approve -no-color
