@@ -6,7 +6,7 @@ resource "aws_launch_configuration" "as_conf" {
   user_data = <<EOF
 #! /bin/bash
 aws s3 cp s3://${var.artifact_bucket}/${var.application_version} ./ --recursive
-java -jar *.jar
+sudo java -jar *.jar
 EOF
 
   security_groups = [aws_security_group.application_server_security_group.id]
