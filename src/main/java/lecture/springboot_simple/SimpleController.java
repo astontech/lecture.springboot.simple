@@ -11,9 +11,10 @@ import java.util.Date;
 @RestController
 public class SimpleController {
 
-    @GetMapping("/datetime")
+    @GetMapping(value = { "/", "/datetime" })
     public ResponseEntity<String> getDateTime() {
         String res = "Server Time: " + new Date().toString();
         return ResponseEntity.ok(res);
     }
+
 }
