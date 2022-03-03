@@ -13,6 +13,7 @@ resource "aws_subnet" "public_subnets" {
   vpc_id            = aws_vpc.web_app_vpc.id
   cidr_block        = each.value.prefix
   availability_zone = each.value.az
+  map_public_ip_on_launch = true
 
   tags = {
     Environment = var.application_name
@@ -46,5 +47,4 @@ resource "aws_route_table_association" "public_route_table_association" {
   subnet_id      = each.value.id
   route_table_id = aws_route_table.public_route_table.id
 }
-
 
