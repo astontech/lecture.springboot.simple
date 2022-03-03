@@ -2,6 +2,7 @@ package lecture.springboot_simple;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
@@ -15,6 +16,11 @@ public class SimpleController {
     public ResponseEntity<String> getDateTime() {
         String res = "Server Time: " + new Date().toString();
         return ResponseEntity.ok(res);
+    }
+
+    @GetMapping("/greeting/{name}")
+    public ResponseEntity<String> greeting(@PathVariable String name) {
+        return ResponseEntity.ok("Hello " + name);
     }
 
     @GetMapping("/aston")
