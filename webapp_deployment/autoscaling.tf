@@ -4,6 +4,7 @@ resource "aws_autoscaling_group" "webapp_asg" {
   max_size           = var.autoscaling.max
   min_size           = var.autoscaling.min
   target_group_arns = [aws_lb_target_group.webapp_tg.arn]
+  health_check_grace_period = 120
 
   tag {
     key                 = "Name"

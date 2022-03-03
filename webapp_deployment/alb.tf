@@ -22,6 +22,10 @@ resource "aws_lb_target_group" "webapp_tg" {
     create_before_destroy = true
   }
 
+  health_check {
+    interval = 10
+  }
+
 }
 
 resource "aws_lb_listener" "front_end" {
