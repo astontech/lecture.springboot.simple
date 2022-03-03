@@ -17,4 +17,21 @@ public class SimpleController {
         return ResponseEntity.ok(res);
     }
 
+    @GetMapping("/aston")
+    public ResponseEntity<String> randomAscii() {
+        return ResponseEntity.ok(generateRandomAscii(10000));
+    }
+
+    public String generateRandomAscii(int numOfChars) {
+//        String availChars = "_-/\\|(),.<>;:'=+!@#$%^&*";
+        String availChars = "_-/\\|()";
+        StringBuilder bigString = new StringBuilder();
+
+        for (int i = 0; i < numOfChars; i++) {
+            int randomIndex = (int) (Math.random() * availChars.length());
+            bigString.append(availChars.charAt(randomIndex));
+        }
+
+        return bigString.toString();
+    }
 }
