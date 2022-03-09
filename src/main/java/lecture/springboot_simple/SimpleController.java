@@ -18,11 +18,6 @@ public class SimpleController {
         return ResponseEntity.ok(res);
     }
 
-    @GetMapping("/greeting/{name}")
-    public ResponseEntity<String> greeting(@PathVariable String name) {
-        return ResponseEntity.ok("Hello " + name);
-    }
-
     @GetMapping("/aston")
     public ResponseEntity<String> randomAscii() {
         return ResponseEntity.ok(generateRandomAscii(10000));
