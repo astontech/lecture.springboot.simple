@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
-
-
 // trigger ci again and again
 
 @RestController
@@ -15,6 +13,12 @@ public class SimpleController {
     @GetMapping(value = { "/", "/datetime" })
     public ResponseEntity<String> getDateTime() {
         String res = "Server Time: " + new Date().toString();
+        return ResponseEntity.ok(res);
+    }
+
+    @GetMapping("/greet/{name}")
+    public ResponseEntity<String> greetUser(@PathVariable String name) {
+        String res = "Hello " + name;
         return ResponseEntity.ok(res);
     }
 
